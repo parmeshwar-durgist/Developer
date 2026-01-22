@@ -1,0 +1,2475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parmeshwar Durgist - Software Engineer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://parmeshwar-durgist.github.io/Resume/img/pdlogo.png" rel="icon">
+    <style>
+        :root {
+            --primary-violet: #8B5CF6;
+            --secondary-violet: #A855F7;
+            --dark-violet: #6D28D9;
+            --light-violet: #C4B5FD;
+            --bg-dark: #0F0F23;
+            --bg-darker: #0A0A1A;
+            --text-light: #E5E7EB;
+            --text-white: #FFFFFF;
+            --card-bg: rgba(139, 92, 246, 0.1);
+            --border-color: rgba(139, 92, 246, 0.2);
+            --glow: 0 0 20px rgba(139, 92, 246, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-light);
+            background: var(--bg-dark);
+            overflow-x: hidden;
+            transition: all 0.5s ease;
+        }
+
+        /* Animated Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(109, 40, 217, 0.2) 0%, transparent 50%);
+            z-index: -1;
+            animation: backgroundShift 10s ease-in-out infinite;
+        }
+
+        @keyframes backgroundShift {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+
+        /* Current Date Header */
+        .current-date-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(45deg, var(--primary-violet), var(--secondary-violet));
+            color: white;
+            text-align: center;
+            padding: 5px 0;
+            font-size: 0.9rem;
+            font-weight: 500;
+            z-index: 9999;
+            box-shadow: 0 2px 15px rgba(139, 92, 246, 0.3);
+            animation: slideDown 0.5s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .current-date-header i {
+            margin-right: 8px;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Particle Animation */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--primary-violet);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        /* Enhanced Navbar Styles */
+        .navbar {
+            background: rgba(15, 15, 35, 0.9) !important;
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            padding: 0.8rem 1rem;
+            margin-top: 28px;
+        }
+
+        .navbar.scrolled {
+            background: rgba(10, 10, 26, 0.95) !important;
+            box-shadow: var(--glow);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+            background: linear-gradient(45deg, var(--primary-violet), var(--secondary-violet));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px var(--primary-violet);
+        }
+
+        .nav-link {
+            color: var(--text-light) !important;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            margin: 0 0.5rem;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(45deg, var(--primary-violet), var(--secondary-violet));
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::before,
+        .nav-link.active::before {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: var(--text-white) !important;
+            text-shadow: 0 0 10px var(--primary-violet);
+            transform: translateY(-2px);
+        }
+
+        .navbar .btn-download {
+            background: linear-gradient(45deg, var(--primary-violet), var(--secondary-violet));
+            border: none;
+            color: white;
+            border-radius: 25px;
+            padding: 0.5rem 1.2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-right: 10px;
+        }
+        
+        .navbar .btn-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(139, 92, 246, 0.4);
+        }
+        
+        .navbar .theme-dropdown .dropdown-menu {
+            background: var(--bg-darker);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            overflow: hidden;
+            min-width: 150px;
+        }
+        
+        .navbar .theme-dropdown .dropdown-item {
+            color: var(--text-light);
+            padding: 0.7rem 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar .theme-dropdown .dropdown-item:hover {
+            background: var(--primary-violet);
+            color: var(--text-white);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+            position: relative;
+            overflow: hidden;
+            padding-top: 100px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="%238B5CF620" points="0,1000 1000,0 1000,1000"/></svg>');
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--text-white), var(--light-violet));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glow 2s ease-in-out infinite alternate;
+            text-shadow: 0 0 50px var(--primary-violet);
+        }
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 20px var(--primary-violet)); }
+            to { filter: drop-shadow(0 0 30px var(--secondary-violet)); }
+        }
+
+        .hero .lead {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            color: var(--text-light);
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .typing-effect {
+            border-right: 3px solid var(--primary-violet);
+            animation: blink 1s infinite;
+            padding-right: 5px;
+        }
+
+        @keyframes blink {
+            0%, 50% { border-color: var(--primary-violet); }
+            51%, 100% { border-color: transparent; }
+        }
+
+        .contact-info {
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .contact-info a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-right: 2rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .contact-info a:hover {
+            color: var(--primary-violet);
+            transform: translateY(-3px);
+            text-shadow: 0 0 15px var(--primary-violet);
+        }
+
+        .profile-photo {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            border: 5px solid var(--primary-violet);
+            box-shadow: 0 0 50px rgba(139, 92, 246, 0.5);
+            animation: pulse 4s infinite ease-in-out;
+            /* margin: 0 auto 2rem; */
+            margin: 150px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 20px rgba(139, 92, 246, 0.5); }
+            50% { transform: scale(1.03); box-shadow: 0 0 40px rgba(139, 92, 246, 0.8); }
+            100% { transform: scale(1); box-shadow: 0 0 20px rgba(139, 92, 246, 0.5); }
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-photo:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Code Animation */
+        .code-animation {
+            position: relative;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.2rem;
+            color: var(--light-violet);
+            text-align: left;
+        }
+
+        .floating-code {
+            position: absolute;
+            animation: floatingCode 8s ease-in-out infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes floatingCode {
+            0%, 100% { transform: translateY(0px) translateX(0px); }
+            25% { transform: translateY(-20px) translateX(10px); }
+            50% { transform: translateY(0px) translateX(20px); }
+            75% { transform: translateY(20px) translateX(10px); }
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--text-white);
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--primary-violet), var(--secondary-violet));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(45deg, var(--primary-violet), var(--secondary-violet));
+            border-radius: 2px;
+            box-shadow: var(--glow);
+        }
+
+        /* Cards */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            transition: all 0.4s ease;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .card:hover::before {
+            left: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 
+                0 25px 50px rgba(139, 92, 246, 0.3),
+                0 0 0 1px rgba(139, 92, 246, 0.4);
+            border-color: var(--primary-violet);
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, var(--primary-violet), var(--secondary-violet));
+            color: var(--text-white);
+            border-radius: 20px 20px 0 0 !important;
+            padding: 1.5rem;
+            position: relative;
+        }
+
+        .card-body {
+            padding: 2rem;
+            color: var(--text-light);
+        }
+
+        /* Skills */
+        .skill-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            backdrop-filter: blur(20px);
+            transition: all 0.4s ease;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-item::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, var(--primary-violet), var(--secondary-violet), var(--dark-violet), var(--primary-violet));
+            animation: rotate 4s linear infinite;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .skill-item:hover::before {
+            opacity: 0.1;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .skill-item:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: var(--glow);
+            border-color: var(--primary-violet);
+        }
+
+        .skill-item i {
+            font-size: 4rem;
+            background: linear-gradient(45deg, var(--primary-violet), var(--secondary-violet));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .skill-item h5 {
+            color: var(--text-white);
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .skill-item p {
+            color: var(--text-light);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Projects */
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            overflow: hidden;
+            backdrop-filter: blur(20px);
+            transition: all 0.4s ease;
+            position: relative;
+            height: 100%;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(139, 92, 246, 0.1), rgba(168, 85, 247, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 
+                0 20px 40px rgba(139, 92, 246, 0.4),
+                0 0 0 1px var(--primary-violet);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, var(--dark-violet), var(--primary-violet));
+            color: var(--text-white);
+            padding: 1.5rem;
+            position: relative;
+        }
+
+        .project-body {
+            padding: 1.5rem;
+            color: var(--text-light);
+            position: relative;
+            z-index: 2;
+        }
+
+        .tech-tag {
+            background: rgba(139, 92, 246, 0.2);
+            color: var(--light-violet);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            padding: 0.4rem 1rem;
+            border-radius: 25px;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin: 0.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .tech-tag:hover {
+            background: var(--primary-violet);
+            color: var(--text-white);
+            transform: scale(1.1);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary-violet), var(--secondary-violet));
+            box-shadow: 0 0 10px var(--primary-violet);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 4rem;
+        }
+
+        .timeline-content {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            position: relative;
+            width: 45%;
+            transition: all 0.4s ease;
+        }
+
+        .timeline-content:hover {
+            transform: scale(1.03);
+            box-shadow: var(--glow);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: 55%;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-right: 55%;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(45deg, var(--primary-violet), var(--secondary-violet));
+            border-radius: 50%;
+            top: 2rem;
+            box-shadow: 0 0 20px var(--primary-violet);
+            animation: pulse-dot 2s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0% { box-shadow: 0 0 20px var(--primary-violet); }
+            50% { box-shadow: 0 0 30px var(--primary-violet), 0 0 40px var(--secondary-violet); }
+            100% { box-shadow: 0 0 20px var(--primary-violet); }
+        }
+
+        /* Contact */
+        .contact-item {
+            transition: all 0.3s ease;
+            border-radius: 15px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            height: 100%;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--glow);
+        }
+
+        .contact-item i {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        /* Buttons */
+        .btn {
+            border-radius: 25px;
+            padding: 0.8rem 2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--primary-violet), var(--secondary-violet));
+            border: none;
+            color: var(--text-white);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+            z-index: 1;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+        }
+
+        .btn-outline-primary {
+            margin-top: 10px;
+            border: 2px solid var(--primary-violet);
+            color: var(--primary-violet);
+        }
+
+        .btn-outline-primary:hover {
+            background: var(--primary-violet);
+            color: var(--text-white);
+            transform: translateY(-3px);
+            box-shadow: var(--glow);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-darker);
+            border-top: 1px solid var(--border-color);
+            color: var(--text-light);
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .animate-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease;
+        }
+
+        .animate-left.animated {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .animate-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease;
+        }
+
+        .animate-right.animated {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Theme-specific styles */
+        .theme-violet {
+            --primary-violet: #8B5CF6;
+            --secondary-violet: #A855F7;
+            --dark-violet: #6D28D9;
+            --light-violet: #C4B5FD;
+        }
+        
+        .theme-blue {
+            --primary-violet: #3B82F6;
+            --secondary-violet: #60A5FA;
+            --dark-violet: #1D4ED8;
+            --light-violet: #BFDBFE;
+        }
+        
+        .theme-green {
+            --primary-violet: #10B981;
+            --secondary-violet: #34D399;
+            --dark-violet: #047857;
+            --light-violet: #A7F3D0;
+        }
+        
+        .theme-red {
+            --primary-violet: #EF4444;
+            --secondary-violet: #F87171;
+            --dark-violet: #B91C1C;
+            --light-violet: #FECACA;
+        }
+        
+        .theme-orange {
+            --primary-violet: #F97316;
+            --secondary-violet: #FB923C;
+            --dark-violet: #C2410C;
+            --light-violet: #FED7AA;
+        }
+        
+        .theme-pink {
+            --primary-violet: #EC4899;
+            --secondary-violet: #F472B6;
+            --dark-violet: #BE185D;
+            --light-violet: #FBCFE8;
+        }
+        
+        .theme-cyan {
+            --primary-violet: #06B6D4;
+            --secondary-violet: #22D3EE;
+            --dark-violet: #0E7490;
+            --light-violet: #A5F3FC;
+        }
+        
+        .theme-yellow {
+            --primary-violet: #EAB308;
+            --secondary-violet: #FACC15;
+            --dark-violet: #A16207;
+            --light-violet: #FEF08A;
+        }
+        
+        .theme-purple {
+            --primary-violet: #A855F7;
+            --secondary-violet: #C084FC;
+            --dark-violet: #7E22CE;
+            --light-violet: #E9D5FF;
+        }
+        
+        .theme-teal {
+            --primary-violet: #14B8A6;
+            --secondary-violet: #2DD4BF;
+            --dark-violet: #0F766E;
+            --light-violet: #99F6E4;
+        }
+        
+        .theme-indigo {
+            --primary-violet: #6366F1;
+            --secondary-violet: #818CF8;
+            --dark-violet: #3730A3;
+            --light-violet: #C7D2FE;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .profile-photo {
+                width: 350px;
+                height: 350px;
+                margin: 95px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .navbar .btn-download {
+                margin: 5px 0;
+                width: 100%;
+            }
+            
+            .navbar .theme-dropdown {
+                width: 100%;
+                margin: 5px 0;
+            }
+            
+            .navbar .theme-dropdown .btn {
+                width: 100%;
+                text-align: left;
+            }
+            
+            .profile-photo {
+                width: 300px;
+                height: 300px;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero .lead {
+                font-size: 1.2rem;
+            }
+            
+            .contact-info a {
+                margin-right: 1rem;
+            }
+            
+            .navbar {
+                margin-top: 28px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-content {
+                width: calc(100% - 80px);
+                margin-left: 80px !important;
+                margin-right: 0 !important;
+            }
+            
+            .timeline-dot {
+                left: 30px;
+            }
+            
+            .contact-info a {
+                display: block;
+                margin: 0.5rem 0;
+            }
+
+            .profile-photo {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .hero-content {
+                text-align: center;
+                padding-top: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+            
+            .card-body {
+                padding: 1.5rem;
+            }
+            
+            .project-card, .skill-item {
+                margin-bottom: 1.5rem;
+            }
+            
+            .navbar {
+                margin-top: 28px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .profile-photo {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero .lead {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .btn {
+                padding: 0.6rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .contact-info a {
+                font-size: 0.9rem;
+            }
+            
+            .card-body {
+                padding: 1rem;
+            }
+            
+            .skill-item {
+                padding: 1.5rem;
+            }
+            
+            .skill-item i {
+                font-size: 3rem;
+            }
+            
+            .current-date-header {
+                font-size: 0.8rem;
+                padding: 4px 0;
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-darker);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, var(--primary-violet), var(--secondary-violet));
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(to bottom, var(--secondary-violet), var(--dark-violet));
+        }
+
+        /* Loading Animation */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 99999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(139, 92, 246, 0.3);
+            border-top: 4px solid var(--primary-violet);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        .gradient-text {
+            background: linear-gradient(45deg, var(--primary-violet), var(--secondary-violet));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Toast notification */
+        .toast-notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--bg-darker);
+            color: var(--text-light);
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border-left: 4px solid var(--primary-violet);
+            z-index: 1000;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            max-width: 350px;
+        }
+
+        .toast-notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        /* Mobile Navigation Improvements */
+        .navbar-collapse {
+            background: rgba(15, 15, 35, 0.95);
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 10px;
+            border: 1px solid var(--border-color);
+        }
+        
+        /* Project filters */
+        .project-filter {
+            margin-bottom: 2rem;
+        }
+        
+        .filter-btn {
+            background: transparent;
+            border: 2px solid var(--border-color);
+            color: var(--text-light);
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            margin: 0 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: linear-gradient(45deg, var(--primary-violet), var(--secondary-violet));
+            border-color: transparent;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* Improved spacing for mobile */
+        @media (max-width: 768px) {
+            section {
+                padding: 70px 0;
+            }
+            
+            .hero {
+                padding-top: 80px;
+            }
+            
+            .container {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+        }
+    </style>
+</head>
+<body class="theme-violet">
+    <!-- Current Date Header -->
+    <div class="current-date-header" id="currentDateHeader">
+        <i class="fas fa-calendar-alt"></i> <span id="currentDate"></span>
+    </div>
+
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <div class="toast-notification" id="toastNotification">
+        <i class="fas fa-check-circle me-2"></i> <span id="toastMessage">Operation completed successfully</span>
+    </div>
+
+    <div class="particles" id="particles"></div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <i class="fas fa-code"></i> DEVELOPER
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home"><i class="fas fa-home"></i> Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about"><i class="fas fa-user"></i> About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience"><i class="fas fa-briefcase"></i> Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills"><i class="fas fa-cogs"></i> Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tools"><i class="fas fa-tools"></i> Tools</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects"><i class="fas fa-laptop-code"></i> Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+                
+                <!-- Download Buttons -->
+                <div class="d-flex ms-3">
+                    <button class="btn btn-download me-2" id="downloadResume">
+                        <span style="display:none"> <i class="fas fa-download"></i></span> Resume
+                    </button>
+                    <button style="display:none" class="btn btn-download me-2" id="downloadAPK">
+                        <i class="fas fa-mobile-alt"></i> App
+                    </button>
+                    
+                    <!-- Theme Dropdown -->
+                    <div class="dropdown theme-dropdown">
+                        <button class="btn btn-download dropdown-toggle" type="button" id="themeDropdown" data-bs-toggle="dropdown">
+                            <i class="fas fa-palette"></i> Theme
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" data-theme="violet">Violet</a></li>
+                            <li><a class="dropdown-item" href="#" data-theme="blue">Blue</a></li>
+                            <li><a class="dropdown-item" href="#" data-theme="green">Green</a></li>
+                            <li><a class="dropdown-item" href="#" data-theme="red">Red</a></li>
+                            <li><a class="dropdown-item" href="#" data-theme="orange">Orange</a></li>
+                            <li><a class="dropdown-item" href="#" data-theme="pink">Pink</a></li>
+                            <li><a class="dropdown-item" href="#" data-theme="cyan">Cyan</a></li>
+                            <li><a class="dropdown-item" href="#" data-theme="yellow">Yellow</a></li>
+                            <li><a class="dropdown-item" href="#" data-theme="purple">Purple</a></li>
+                            <li><a class="dropdown-item" href="#" data-theme="teal">Teal</a></li>
+                            <li><a class="dropdown-item" href="#" data-theme="indigo">Indigo</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content text-lg-start text-center">
+                    <h1 id="typewriter">Parmeshwar Durgist</h1>
+                    <p class="lead typing-effect" id="subtitle">Software Engineer | Full-Stack Developer | Android Developer </p>
+                    <div class="contact-info mb-4">
+                        <a href="mailto:durgistparmeshwar@gmail.com" class="animate-on-scroll">
+                            <i class="fas fa-envelope"></i> durgistparmeshwar@gmail.com
+                        </a>
+                        <a href="tel:+919657847967" class="animate-on-scroll">
+                            <i class="fas fa-phone"></i> +91 9657847967
+                        </a>
+                        <a href="https://www.linkedin.com/in/parmeshwar-durgist-827508273/" class="animate-on-scroll">
+                            <i class="fab fa-linkedin"></i> LinkedIn
+                        </a>
+                        <a href="https://github.com/parmeshwar-durgist" class="animate-on-scroll">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                    </div>
+                    <div class="animate-on-scroll">
+                        <a href="#about" class="btn btn-primary me-3">
+                            <i class="fas fa-user"></i> Explore My Work
+                        </a>
+                        <a href="#contact" class="btn btn-outline-primary">
+                            <i class="fas fa-envelope"></i> Get In Touch
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center animate-right">
+                    <div class="profile-photo">
+                        <img src="./images/pd.jpeg" alt="Parmeshwar Durgist Profile Photo">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="section-title animate-on-scroll">
+                <h2><i class="fas fa-user-circle"></i> Professional Summary</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="card animate-on-scroll">
+                        <div class="card-body p-5">
+                            <div class="text-center mb-4">
+                                <i class="fas fa-quote-left" style="font-size: 2rem; color: var(--primary-violet); opacity: 0.5;"></i>
+                            </div>
+                            <p class="lead text-center mb-4" style="color: var(--text-white);">
+                                Passionate and detail-oriented Software Engineer with 1 year of professional experience at KODIODO Technologies, specializing in scalable web and mobile application development.
+                            </p>
+                            <p class="text-center">
+                                Currently developing scalable applications using Vue.js, Laravel, and Android, with a strategic focus on transitioning into Product Management to drive innovation and business growth. I have hands-on expertise in both web and mobile application development, delivering high-quality, user-centric solutions that make a difference.
+                            </p>
+                            <div class="row mt-4">
+                                <div class="col-md-6 text-center">
+                                    <div class="p-3">
+                                        <i class="fas fa-laptop-code fa-3x gradient-text mb-3"></i>
+                                        <h5 style="color: var(--text-white);">1+ Years Experience</h5>
+                                        <p>Professional Development</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 text-center">
+                                    <div class="p-3">
+                                        <i class="fas fa-project-diagram fa-3x gradient-text mb-3"></i>
+                                        <h5 style="color: var(--text-white);">22+ Projects</h5>
+                                        <p>Delivered Successfully</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="experience">
+        <div class="container">
+            <div class="section-title animate-on-scroll">
+                <h2><i class="fas fa-briefcase"></i> Work Experience</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item animate-left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-code fa-2x gradient-text me-3"></i>
+                            <div>
+                                <h4 class="gradient-text mb-1">Software Engineer</h4>
+                                <h5 style="color: var(--text-white);">Kodiodo Technologies Pvt Ltd</h5>
+                            </div>
+                        </div>
+                        <p class="gradient-text mb-3">
+                            <i class="fas fa-calendar-alt"></i> September 2024 - September 2025
+                        </p>
+                        <p>Developed scalable web and mobile applications using cutting-edge technologies. Focused on creating innovative, user-centric solutions with exceptional performance and maintainability.</p>
+                        <div class="mt-3">
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <span>Web application development using Vue.js and Laravel</span>
+                            </div>
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <span>Mobile application development using Android (Java/Kotlin)</span>
+                            </div>
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <span>RESTful API development and database management</span>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <span>Cross-platform development and system integration</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-5">
+        <div class="container">
+            <div class="section-title animate-on-scroll">
+                <h2><i class="fas fa-cogs"></i> Technical Skills</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 animate-on-scroll">
+                    <div class="skill-item">
+                        <i class="fab fa-laravel"></i>
+                        <h5>Laravel</h5>
+                        <p>Backend development, RESTful APIs, and robust database management solutions</p>
+                        <div class="mt-3">
+                            <div class="progress" style="height: 8px; background: rgba(139, 92, 246, 0.2);">
+                                <div class="progress-bar" style="width: 90%; background: linear-gradient(45deg, var(--primary-violet), var(--secondary-violet));"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 animate-on-scroll">
+                    <div class="skill-item">
+                        <i class="fab fa-vuejs"></i>
+                        <h5>Vue.js</h5>
+                        <p>Building reactive, modern, and dynamic front-end user interfaces</p>
+                        <div class="mt-3">
+                            <div class="progress" style="height: 8px; background: rgba(139, 92, 246, 0.2);">
+                                <div class="progress-bar" style="width: 85%; background: linear-gradient(45deg, var(--primary-violet), var(--secondary-violet));"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 animate-on-scroll">
+                    <div class="skill-item">
+                        <i class="fab fa-android"></i>
+                        <h5>Android Development</h5>
+                        <p>Native mobile applications using Java/Kotlin with modern architecture</p>
+                        <div class="mt-3">
+                            <div class="progress" style="height: 8px; background: rgba(139, 92, 246, 0.2);">
+                                <div class="progress-bar" style="width: 80%; background: linear-gradient(45deg, var(--primary-violet), var(--secondary-violet));"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 animate-on-scroll">
+                    <div class="skill-item">
+                        <i class="fab fa-html5"></i>
+                        <h5>Web Technologies</h5>
+                        <p>HTML5, CSS3, JavaScript, Bootstrap - Responsive and modern web design</p>
+                        <div class="mt-3">
+                            <div class="progress" style="height: 8px; background: rgba(139, 92, 246, 0.2);">
+                                <div class="progress-bar" style="width: 95%; background: linear-gradient(45deg, var(--primary-violet), var(--secondary-violet));"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-lg-12 animate-on-scroll">
+                    <div class="card">
+                        <div class="card-header text-center">
+                            <h4><i class="fas fa-tools"></i> Additional Technologies</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row text-center">
+                                <div class="col-md-2 col-6 mb-3">
+                                    <i class="fas fa-database fa-2x gradient-text mb-2"></i>
+                                    <p>MySQL</p>
+                                </div>
+                                <div class="col-md-2 col-6 mb-3">
+                                    <i class="fab fa-git-alt fa-2x gradient-text mb-2"></i>
+                                    <p>Git</p>
+                                </div>
+                                <div class="col-md-2 col-6 mb-3">
+                                    <i class="fas fa-server fa-2x gradient-text mb-2"></i>
+                                    <p>REST APIs</p>
+                                </div>
+                                <div class="col-md-2 col-6 mb-3">
+                                    <i class="fab fa-bootstrap fa-2x gradient-text mb-2"></i>
+                                    <p>Bootstrap</p>
+                                </div>
+                                <div class="col-md-2 col-6 mb-3">
+                                    <i class="fab fa-js-square fa-2x gradient-text mb-2"></i>
+                                    <p>JavaScript</p>
+                                </div>
+                                <div class="col-md-2 col-6 mb-3">
+                                    <i class="fas fa-mobile-alt fa-2x gradient-text mb-2"></i>
+                                    <p>Responsive Design</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="tools" style="background: var(--bg-darker);">
+        <div class="container">
+            <div class="section-title animate-on-scroll">
+                <h2><i class="fas fa-tools"></i> AI & Developer Tools</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-3 col-md-6 mb-4 animate-on-scroll">
+                    <div class="skill-item">
+                        <i class="fas fa-robot"></i>
+                        <h5>ChatGPT</h5>
+                        <p>Leveraging advanced AI for code generation, debugging, and ideation.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 animate-on-scroll" style="transition-delay: 0.1s;">
+                    <div class="skill-item">
+                        <i class="fas fa-brain"></i>
+                        <h5>DeepSeek</h5>
+                        <p>Utilizing specialized AI models for complex problem-solving and code analysis.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 animate-on-scroll" style="transition-delay: 0.2s;">
+                    <div class="skill-item">
+                        <i class="fas fa-cloud"></i>
+                        <h5>Claude AI</h5>
+                        <p>Employing AI for documentation, content creation, and workflow automation.</p>
+                    </div>
+                </div>
+                 <div class="col-lg-3 col-md-6 mb-4 animate-on-scroll" style="transition-delay: 0.3s;">
+                    <div class="skill-item">
+                        <i class="fab fa-git-alt"></i>
+                        <h5>Git & GitHub</h5>
+                        <p>Expert version control for collaborative and efficient development cycles.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="projects">
+        <div class="container">
+            <div class="section-title animate-on-scroll">
+                <h2><i class="fas fa-laptop-code"></i> Professional Projects at KODIODO</h2>
+                <p class="lead mt-3">22+ Projects Delivered Successfully</p>
+            </div>
+            
+            <!-- Project Filters -->
+            <div class="project-filter text-center mb-5 animate-on-scroll">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="web">Web Applications</button>
+                <button class="filter-btn" data-filter="android">Android Applications</button>
+                <button class="filter-btn" data-filter="fullstack">Full-Stack</button>
+            </div>
+            
+            <div class="row g-4" id="projectsContainer">
+                <!-- Web Applications -->
+                <div class="col-lg-6 project-item" data-category="web">
+                    <div class="project-card animate-left">
+                        <div class="project-header">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-print fa-2x me-3"></i>
+                                <div>
+                                    <h5 class="mb-0">Kiran Printing Press</h5>
+                                    <small class="opacity-75">Website Development</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <p>A professional printing service website with modern design, service catalog, portfolio showcase, and user-friendly interface for customer inquiries and order management. Features include online quote calculator, order tracking, and contact form integration.</p>
+                            <div class="mt-3">
+                                <span class="tech-tag">HTML5</span>
+                                <span class="tech-tag">CSS3</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Bootstrap</span>
+                                <span class="tech-tag">Responsive</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 project-item" data-category="web">
+                    <div class="project-card animate-right">
+                        <div class="project-header">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-pills fa-2x me-3"></i>
+                                <div>
+                                    <h5 class="mb-0">Bio Mosaic Pharmacy</h5>
+                                    <small class="opacity-75">Website Development</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <p>Comprehensive pharmacy management website with inventory tracking, customer management, prescription handling, and online consultation features. Includes medicine search, dosage calculator, and appointment booking system for seamless healthcare services.</p>
+                            <div class="mt-3">
+                                <span class="tech-tag">Vue.js</span>
+                                <span class="tech-tag">Laravel</span>
+                                <span class="tech-tag">MySQL</span>
+                                <span class="tech-tag">Bootstrap</span>
+                                <span class="tech-tag">REST API</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 project-item" data-category="web">
+                    <div class="project-card animate-left">
+                        <div class="project-header">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-id-card fa-2x me-3"></i>
+                                <div>
+                                    <h5 class="mb-0">Kodiodo Visiting Card</h5>
+                                    <small class="opacity-75">Web Platform</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <p>Digital visiting card platform for modern business networking with QR code integration, contact sharing, and analytics dashboard. Features include customizable templates, real-time analytics, and bulk contact management for corporate users.</p>
+                            <div class="mt-3">
+                                <span class="tech-tag">Vue.js</span>
+                                <span class="tech-tag">Laravel</span>
+                                <span class="tech-tag">QR API</span>
+                                <span class="tech-tag">Analytics</span>
+                                <span class="tech-tag">MySQL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 project-item" data-category="web">
+                    <div class="project-card animate-right">
+                        <div class="project-header">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-moon fa-2x me-3"></i>
+                                <div>
+                                    <h5 class="mb-0">Lunar Manufacturing</h5>
+                                    <small class="opacity-75">Website Development</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <p>Specialized manufacturing website focusing on lunar exploration equipment production with advanced quality control, tracking systems, and compliance management. Features include product catalog, manufacturing process visualization, and compliance documentation.</p>
+                            <div class="mt-3">
+                                <span class="tech-tag">Vue.js</span>
+                                <span class="tech-tag">Laravel</span>
+                                <span class="tech-tag">Quality Control</span>
+                                <span class="tech-tag">Compliance</span>
+                                <span class="tech-tag">Documentation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 project-item" data-category="web fullstack">
+                    <div class="project-card animate-left">
+                        <div class="project-header">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-file-invoice-dollar fa-2x me-3"></i>
+                                <div>
+                                    <h5 class="mb-0">Mobile Billing System</h5>
+                                    <small class="opacity-75">Web Application</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <p>Advanced billing solution with automated issue tracking, resolution workflows, payment gateway integration, and cross-platform mobile support. Features include invoice generation, payment tracking, customer portal, and reporting dashboard.</p>
+                            <div class="mt-3">
+                                <span class="tech-tag">Vue.js</span>
+                                <span class="tech-tag">Laravel</span>
+                                <span class="tech-tag">Payment Gateway</span>
+                                <span class="tech-tag">Reporting</span>
+                                <span class="tech-tag">Invoicing</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 project-item" data-category="web fullstack">
+                    <div class="project-card animate-right">
+                        <div class="project-header">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-map-marked-alt fa-2x me-3"></i>
+                                <div>
+                                    <h5 class="mb-0">Tourist Guide System</h5>
+                                    <small class="opacity-75">Web Application</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <p>Comprehensive tourist management platform with advanced user management, professional guide matching, booking system, and powerful admin dashboard with real-time analytics. Features include location-based services, review system, and multi-language support.</p>
+                            <div class="mt-3">
+                                <span class="tech-tag">Vue.js</span>
+                                <span class="tech-tag">Laravel</span>
+                                <span class="tech-tag">MySQL</span>
+                                <span class="tech-tag">Geolocation API</span>
+                                <span class="tech-tag">Booking System</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 project-item" data-category="web">
+                    <div class="project-card animate-left">
+                        <div class="project-header">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-bed fa-2x me-3"></i>
+                                <div>
+                                    <h5 class="mb-0">Hostel Management System</h5>
+                                    <small class="opacity-75">Web Application</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <p>Complete hostel management solution featuring student registration, room allocation, floor management, payment tracking, and automated reporting system. Includes maintenance request tracking, inventory management, and mess management modules.</p>
+                            <div class="mt-3">
+                                <span class="tech-tag">Laravel</span>
+                                <span class="tech-tag">Vue.js</span>
+                                <span class="tech-tag">MySQL</span>
+                                <span class="tech-tag">Payment System</span>
+                                <span class="tech-tag">Reporting</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 project-item" data-category="web fullstack">
+                    <div class="project-card animate-right">
+                        <div class="project-header">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-shopping-cart fa-2x me-3"></i>
+                                <div>
+                                    <h5 class="mb-0">Find In Circle</h5>
+                                    <small class="opacity-75">Web Application</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <p>Full-featured e-commerce platform with location-based services, comprehensive user and admin management, inventory tracking, and mobile application integration. Features include vendor management, order tracking, and advanced search filters.</p>
+                            <div class="mt-3">
+                                <span class="tech-tag">Vue.js</span>
+                                <span class="tech-tag">Laravel</span>
+                                <span class="tech-tag">E-commerce</span>
+                                <span class="tech-tag">Location-based</span>
+                                <span class="tech-tag">Vendor Management</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-12 project-item" data-category="web fullstack">
+                    <div class="project-card animate-on-scroll">
+                        <div class="project-header">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-industry fa-3x me-3"></i>
+                                <div>
+                                    <h5 class="mb-0">Add On System Manufacturing</h5>
+                                    <p class="mb-0 opacity-75">Enterprise Manufacturing Management Solution</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <p class="lead">Comprehensive enterprise-level manufacturing management system encompassing all aspects of production workflow with real-time monitoring and analytics.</p>
+                            <div class="row mt-4">
+                                <div class="col-md-6">
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2"><i class="fas fa-users text-success me-2"></i> HR Management</li>
+                                        <li class="mb-2"><i class="fas fa-cogs text-success me-2"></i> Machine Management</li>
+                                        <li class="mb-2"><i class="fas fa-boxes text-success me-2"></i> Material Management</li>
+                                        <li class="mb-2"><i class="fas fa-ticket-alt text-success me-2"></i> Ticket Management</li>
+                                        <li class="mb-2"><i class="fas fa-paint-brush text-success me-2"></i> Design Management</li>
+                                        <li class="mb-2"><i class="fas fa-shopping-bag text-success me-2"></i> Purchase Management</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2"><i class="fas fa-clipboard-list text-success me-2"></i> Order Management</li>
+                                        <li class="mb-2"><i class="fas fa-chart-line text-success me-2"></i> Production Dashboard</li>
+                                        <li class="mb-2"><i class="fas fa-tv text-success me-2"></i> Production Display</li>
+                                        <li class="mb-2"><i class="fas fa-cash-register text-success me-2"></i> Sales Management</li>
+                                        <li class="mb-2"><i class="fas fa-warehouse text-success me-2"></i> Store Management</li>
+                                        <li class="mb-2"><i class="fas fa-file-alt text-success me-2"></i> Reports & Analytics</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <span class="tech-tag">Vue.js</span>
+                                <span class="tech-tag">Laravel</span>
+                                <span class="tech-tag">MySQL</span>
+                                <span class="tech-tag">REST API</span>
+                                <span class="tech-tag">Real-time Dashboard</span>
+                                <span class="tech-tag">Reporting</span>
+                                <span class="tech-tag">Analytics</span>
+                                <span class="tech-tag">Inventory</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 project-item" data-category="web">
+                    <div class="project-card animate-left">
+                        <div class="project-header">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-bolt fa-2x me-3"></i>
+                                <div>
+                                    <h5 class="mb-0">RK Electric Manufacturing</h5>
+                                    <small class="opacity-75">Website Development</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <p>Electric manufacturing company website with product catalog, manufacturing process showcase, quality certification display, and dealer network management. Features include technical specifications, product comparison, and dealer locator.</p>
+                            <div class="mt-3">
+                                <span class="tech-tag">Vue.js</span>
+                                <span class="tech-tag">Laravel</span>
+                                <span class="tech-tag">Product Catalog</span>
+                                <span class="tech-tag">Dealer Management</span>
+                                <span class="tech-tag">Technical Specs</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Android Applications -->
+                <div class="col-lg-6 project-item" data-category="android">
+                    <div class="project-card animate-left">
+                        <div class="project-header">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-industry fa-2x me-3"></i>
+                                <div>
+                                    <h5 class="mb-0">Add On Systems Manufacturing</h5>
+                                    <small class="opacity-75">Android Application</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <p>Mobile version of the manufacturing management system with offline capabilities, barcode scanning for inventory, real-time production updates, and mobile approvals. Features include photo documentation and push notifications.</p>
+                            <div class="mt-3">
+                                <span class="tech-tag">Android</span>
+                                <span class="tech-tag">Java</span>
+                                <span class="tech-tag">REST API</span>
+                                <span class="tech-tag">Barcode Scanner</span>
+                                <span class="tech-tag">Offline Storage</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 project-item" data-category="android">
+                    <div class="project-card animate-right">
+                        <div class="project-header">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-utensils fa-2x me-3"></i>
+                                <div>
+                                    <h5 class="mb-0">ShiruEats User App</h5>
+                                    <small class="opacity-75">Android Application</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <p>Food delivery application for customers with restaurant discovery, menu browsing, online ordering, real-time order tracking, and payment integration. Features include favorites, order history, and multiple payment options.</p>
+                            <div class="mt-3">
+                                <span class="tech-tag">Android</span>
+                                <span class="tech-tag">Java</span>
+                                <span class="tech-tag">Firebase</span>
+                                <span class="tech-tag">Google Maps</span>
+                                <span class="tech-tag">Payment Gateway</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 project-item" data-category="android">
+                    <div class="project-card animate-left">
+                        <div class="project-header">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-user-shield fa-2x me-3"></i>
+                                <div>
+                                    <h5 class="mb-0">ShiruEats Admin App</h5>
+                                    <small class="opacity-75">Android Application</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <p>Admin application for restaurant management with order processing, inventory management, delivery tracking, and analytics dashboard. Features include push notifications, sales reports, and staff management.</p>
+                            <div class="mt-3">
+                                <span class="tech-tag">Android</span>
+                                <span class="tech-tag">Java</span>
+                                <span class="tech-tag">Firebase</span>
+                                <span class="tech-tag">Analytics</span>
+                                <span class="tech-tag">Push Notifications</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 project-item" data-category="android">
+                    <div class="project-card animate-right">
+                        <div class="project-header">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-shopping-cart fa-2x me-3"></i>
+                                <div>
+                                    <h5 class="mb-0">Find In Circle</h5>
+                                    <small class="opacity-75">Android Application</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <p>Mobile e-commerce application with location-based product discovery, secure payments, order tracking, and vendor communication. Features include wishlist, product reviews, and chat support.</p>
+                            <div class="mt-3">
+                                <span class="tech-tag">Android</span>
+                                <span class="tech-tag">Java</span>
+                                <span class="tech-tag">Geolocation</span>
+                                <span class="tech-tag">E-commerce</span>
+                                <span class="tech-tag">Chat System</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 project-item" data-category="android">
+                    <div class="project-card animate-left">
+                        <div class="project-header">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-address-card fa-2x me-3"></i>
+                                <div>
+                                    <h5 class="mb-0">Visiting Card Mobile App</h5>
+                                    <small class="opacity-75">Android Application</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <p>Mobile application for digital visiting card management with automated SMS integration, customer enquiry tracking, product catalog, and feedback system. Features include QR code scanning and contact synchronization.</p>
+                            <div class="mt-3">
+                                <span class="tech-tag">Android</span>
+                                <span class="tech-tag">Java</span>
+                                <span class="tech-tag">SMS API</span>
+                                <span class="tech-tag">Firebase</span>
+                                <span class="tech-tag">QR Scanner</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 project-item" data-category="android">
+                    <div class="project-card animate-right">
+                        <div class="project-header">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-file-invoice-dollar fa-2x me-3"></i>
+                                <div>
+                                    <h5 class="mb-0">Mobile Billing System</h5>
+                                    <small class="opacity-75">Android Application</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <p>Mobile billing application for field staff with offline data collection, receipt printing via Bluetooth, customer database, and payment collection. Features include invoice generation and customer notification.</p>
+                            <div class="mt-3">
+                                <span class="tech-tag">Android</span>
+                                <span class="tech-tag">Java</span>
+                                <span class="tech-tag">Bluetooth</span>
+                                <span class="tech-tag">Offline Storage</span>
+                                <span class="tech-tag">Receipt Printing</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 project-item" data-category="android">
+                    <div class="project-card animate-left">
+                        <div class="project-header">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-file-contract fa-2x me-3"></i>
+                                <div>
+                                    <h5 class="mb-0">Contract Management</h5>
+                                    <small class="opacity-75">Android Application</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <p>Contract management application for mobile billing system with document management, digital signatures, approval workflows, and deadline tracking. Features include contract templates and notification system.</p>
+                            <div class="mt-3">
+                                <span class="tech-tag">Android</span>
+                                <span class="tech-tag">Java</span>
+                                <span class="tech-tag">Document Management</span>
+                                <span class="tech-tag">Digital Signature</span>
+                                <span class="tech-tag">Workflow</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 project-item" data-category="android">
+                    <div class="project-card animate-right">
+                        <div class="project-header">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-industry fa-2x me-3"></i>
+                                <div>
+                                    <h5 class="mb-0">Ruptech Manufacturing</h5>
+                                    <small class="opacity-75">Android Application</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <p>Manufacturing process monitoring application with quality control checklists, production data entry, equipment maintenance tracking, and reporting. Features include photo documentation and supervisor approvals.</p>
+                            <div class="mt-3">
+                                <span class="tech-tag">Android</span>
+                                <span class="tech-tag">Java</span>
+                                <span class="tech-tag">Quality Control</span>
+                                <span class="tech-tag">Maintenance</span>
+                                <span class="tech-tag">Reporting</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 project-item" data-category="android">
+                    <div class="project-card animate-left">
+                        <div class="project-header">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-road fa-2x me-3"></i>
+                                <div>
+                                    <h5 class="mb-0">Toll Systems</h5>
+                                    <small class="opacity-75">Android Application</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <p>Toll management application connected to ticket printing machines with vehicle registration, fare calculation, receipt printing, and transaction recording. Features include RFID integration and daily collection reports.</p>
+                            <div class="mt-3">
+                                <span class="tech-tag">Android</span>
+                                <span class="tech-tag">Java</span>
+                                <span class="tech-tag">Bluetooth Printing</span>
+                                <span class="tech-tag">RFID</span>
+                                <span class="tech-tag">Transaction Log</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 project-item" data-category="android">
+                    <div class="project-card animate-right">
+                        <div class="project-header">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-users fa-2x me-3"></i>
+                                <div>
+                                    <h5 class="mb-0">Vendor Management</h5>
+                                    <small class="opacity-75">Android Application</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <p>Vendor management application for Find In Circle platform with vendor registration, product listing, order management, and payment tracking. Features include performance analytics and communication tools.</p>
+                            <div class="mt-3">
+                                <span class="tech-tag">Android</span>
+                                <span class="tech-tag">Java</span>
+                                <span class="tech-tag">Vendor Portal</span>
+                                <span class="tech-tag">Order Management</span>
+                                <span class="tech-tag">Analytics</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 project-item" data-category="android">
+                    <div class="project-card animate-left">
+                        <div class="project-header">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-graduation-cap fa-2x me-3"></i>
+                                <div>
+                                    <h5 class="mb-0">Education System</h5>
+                                    <small class="opacity-75">Android Application</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <p>Comprehensive education application for MPSC, UPSC and other competitive exams with study materials, mock tests, performance analytics, and doubt clearing. Features include video lectures and progress tracking.</p>
+                            <div class="mt-3">
+                                <span class="tech-tag">Android</span>
+                                <span class="tech-tag">Java</span>
+                                <span class="tech-tag">E-learning</span>
+                                <span class="tech-tag">Mock Tests</span>
+                                <span class="tech-tag">Progress Tracking</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 project-item" data-category="android">
+                    <div class="project-card animate-right">
+                        <div class="project-header">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-vote-yea fa-2x me-3"></i>
+                                <div>
+                                    <h5 class="mb-0">Election System</h5>
+                                    <small class="opacity-75">Android Application</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <p>Voter information system with candidate profiles, election schedules, polling booth locator, and results tracking. Features include election news, constituency information, and voter registration assistance.</p>
+                            <div class="mt-3">
+                                <span class="tech-tag">Android</span>
+                                <span class="tech-tag">Java</span>
+                                <span class="tech-tag">Geolocation</span>
+                                <span class="tech-tag">Information System</span>
+                                <span class="tech-tag">News Feed</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5 animate-on-scroll">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="gradient-text mb-3"><i class="fas fa-trophy"></i> Project Statistics</h4>
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <div class="p-3">
+                                    <h3 class="gradient-text">22+</h3>
+                                    <p>Total Projects</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="p-3">
+                                    <h3 class="gradient-text">10</h3>
+                                    <p>Web Applications</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="p-3">
+                                    <h3 class="gradient-text">12</h3>
+                                    <p>Android Applications</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> 
+
+    <section id="education" class="py-5">
+        <div class="container">
+            <div class="section-title animate-on-scroll">
+                <h2><i class="fas fa-graduation-cap"></i> Educational Journey</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 animate-left">
+                    <div class="card">
+                        <div class="card-header text-center">
+                            <i class="fas fa-school fa-2x mb-2"></i>
+                            <h5>XII (HSC)</h5>
+                        </div>
+                        <div class="card-body text-center">
+                            <h6 style="color: var(--text-white);">Jawahar Madyamik High School</h6>
+                            <p style="color: var(--text-white);" class=" mb-3">
+                                <i class="fas fa-calendar-alt"></i> Completed June 2020
+                            </p>
+                            <div class="mb-3">
+                                <div class="d-inline-block p-3 rounded" style="background: var(--card-bg); border: 1px solid var(--border-color);">
+                                    <h4 class="gradient-text mb-0">66.83%</h4>
+                                    <small>Overall Percentage</small>
+                                </div>
+                            </div>
+                            <p>Strong foundation in science and mathematics, preparing for higher education in computer applications.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 animate-on-scroll">
+                    <div class="card">
+                        <div class="card-header text-center">
+                            <i class="fas fa-laptop fa-2x mb-2"></i>
+                            <h5>BCA (Science)</h5>
+                        </div>
+                        <div class="card-body text-center">
+                            <h6 style="color: var(--text-white);">Savitribai Phule Pune University</h6>
+                            <p style="color: var(--text-white);" class=" mb-3">
+                                <i class="fas fa-calendar-alt"></i> Expected May 2024
+                            </p>
+                            <div class="mb-3">
+                                <div class="d-inline-block p-3 rounded" style="background: var(--card-bg); border: 1px solid var(--border-color);">
+                                    <h4 class="gradient-text mb-0">8.92</h4>
+                                    <small>SGPA</small>
+                                </div>
+                            </div>
+                            <p><strong>Bachelor of Computer Application</strong></p>
+                            <p>Comprehensive study of programming, database management, web development, and software engineering principles.</p>
+                            <p class="mt-2"><strong>Relevant Courses:</strong> Data Structures, Algorithms, Web Development, Database Management, Software Engineering</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 animate-right">
+                    <div class="card">
+                        <div class="card-header text-center">
+                            <i class="fas fa-user-graduate fa-2x mb-2"></i>
+                            <h5>MCA (Science)</h5>
+                        </div>
+                        <div class="card-body text-center">
+                            <h6 style="color: var(--text-white);">Savitribai Phule Pune University</h6>
+                            <p style="color: var(--text-white);" class=" mb-3">
+                                <i class="fas fa-calendar-alt"></i> Expected May 2026
+                            </p>
+                            <div class="mb-3">
+                                <div class="d-inline-block p-3 rounded" style="background: var(--card-bg); border: 1px solid var(--border-color);">
+                                    <h4 class="gradient-text mb-0">8.00</h4>
+                                    <small>SGPA</small>
+                                </div>
+                            </div>
+                            <p><strong>Master of Computer Application</strong></p>
+                            <p>Advanced coursework in software architecture, product management, and enterprise application development.</p>
+                            <p class="mt-2"><strong>Advanced Courses:</strong> Advanced Algorithms, Cloud Computing, Machine Learning, Product Management, Enterprise Architecture</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-lg-12 animate-on-scroll">
+                    <div class="card">
+                        <div class="card-header text-center">
+                            <h4><i class="fas fa-certificate"></i> Professional Certifications</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row text-center">
+                                <div class="col-md-4 mb-4">
+                                    <div class="p-3 rounded" style="background: var(--card-bg); border: 1px solid var(--border-color);">
+                                        <i class="fas fa-file-contract fa-3x gradient-text mb-3"></i>
+                                        <h6 style="color: var(--text-white);">Joining Letter</h6>
+                                        <p class="small">Official employment documentation from Kodiodo Technologies</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-4">
+                                    <div class="p-3 rounded" style="background: var(--card-bg); border: 1px solid var(--border-color);">
+                                        <i class="fas fa-handshake fa-3x gradient-text mb-3"></i>
+                                        <h6 style="color: var(--text-white);">Internship Letter</h6>
+                                        <p class="small">Internship completion certificate with excellent performance ratings</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-4">
+                                    <div class="p-3 rounded" style="background: var(--card-bg); border: 1px solid var(--border-color);">
+                                        <i class="fas fa-award fa-3x gradient-text mb-3"></i>
+                                        <h6 style="color: var(--text-white);">Experience Letter</h6>
+                                        <p class="small">Professional experience validation and skill recognition</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> 
+
+    <section id="contact">
+        <div class="container">
+            <div class="section-title animate-on-scroll">
+                <h2><i class="fas fa-envelope-open"></i> Let's Connect & Create Something Amazing</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="card animate-on-scroll">
+                        <div class="card-body p-5">
+                            <div class="text-center mb-5">
+                                <i class="fas fa-rocket fa-4x gradient-text mb-4"></i>
+                                <h4 class="gradient-text mb-4">Ready to Collaborate!</h4>
+                                <p class="lead" style="color: var(--text-white);">
+                                    I'm always excited about new opportunities, innovative projects, and meaningful collaborations. 
+                                    Let's discuss how we can create something extraordinary together!
+                                </p>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="contact-item p-4">
+                                        <div class="text-center">
+                                            <i class="fas fa-envelope fa-3x gradient-text mb-3"></i>
+                                            <h6 style="color: var(--text-white);">Email Address</h6>
+                                            <a href="mailto:durgistparmeshwar@gmail.com" class="text-decoration-none" style="color: var(--light-violet);">
+                                                durgistparmeshwar@gmail.com
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="contact-item p-4">
+                                        <div class="text-center">
+                                            <i class="fas fa-phone fa-3x gradient-text mb-3"></i>
+                                            <h6 style="color: var(--text-white);">Phone Number</h6>
+                                            <a href="tel:+919657847967" class="text-decoration-none" style="color: var(--light-violet);">
+                                                +91 9657847967
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="text-center mt-4">
+                                <h6 style="color: var(--text-white);" class="mb-3">Connect on Social Platforms</h6>
+                                <div class="social-links">
+                                    <a href="https://www.linkedin.com/in/parmeshwar-durgist-827508273/" class="btn btn-primary mx-2 mb-2">
+                                        <i class="fab fa-linkedin"></i> LinkedIn
+                                    </a>
+                                    <a href="https://github.com/parmeshwar-durgist" class="btn btn-outline-primary mx-2 mb-2">
+                                        <i class="fab fa-github"></i> GitHub
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <p class="mb-2">
+                        Designed & Developed by <span class="gradient-text">Parmeshwar Durgist</span>
+                    </p>
+                    <p class="mb-0">
+                        &copy; 2025 All Rights Reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Set current date
+            const currentDate = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('currentDate').textContent = currentDate.toLocaleDateString('en-US', options);
+            
+            const loadingOverlay = document.getElementById('loadingOverlay');
+            loadingOverlay.style.opacity = '0';
+            setTimeout(() => {
+                loadingOverlay.style.display = 'none';
+            }, 500);
+
+            // Animate on Scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            document.querySelectorAll('.animate-on-scroll, .animate-left, .animate-right').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Sticky Navigation Bar
+            const navbar = document.querySelector('.navbar');
+            const dateHeader = document.getElementById('currentDateHeader');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                    dateHeader.style.boxShadow = '0 2px 15px rgba(139, 92, 246, 0.3)';
+                } else {
+                    navbar.classList.remove('scrolled');
+                    dateHeader.style.boxShadow = 'none';
+                }
+            });
+
+            // Active Nav Link
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.href.includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+
+            // Particle Animation
+            function createParticle() {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                particle.style.left = `${Math.random() * 100}vw`;
+                particle.style.animationDuration = `${Math.random() * 5 + 3}s`;
+                particle.style.animationDelay = `-${Math.random() * 5}s`;
+                document.getElementById('particles').appendChild(particle);
+            }
+            for (let i = 0; i < 50; i++) {
+                createParticle();
+            }
+
+            // Typewriter Effect
+            const subtitleEl = document.getElementById('subtitle');
+            const subtitles = ["Software Engineer", "Full-Stack Developer", "Android Developer", "Product Manager"];
+            let subIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            
+            function type() {
+                const currentText = subtitles[subIndex];
+                if (isDeleting) {
+                    subtitleEl.textContent = currentText.substring(0, charIndex--);
+                } else {
+                    subtitleEl.textContent = currentText.substring(0, charIndex++);
+                }
+                
+                if (!isDeleting && charIndex > currentText.length) {
+                    isDeleting = true;
+                    setTimeout(type, 1500);
+                } else if (isDeleting && charIndex < 0) {
+                    isDeleting = false;
+                    subIndex = (subIndex + 1) % subtitles.length;
+                    setTimeout(type, 500);
+                } else {
+                    setTimeout(type, isDeleting ? 50 : 100);
+                }
+            }
+            type();
+
+            // Download Resume
+            document.getElementById('downloadResume').addEventListener('click', function() {
+                try {
+                    showToast('Downloading resume...');
+                    
+                    const resumeUrl = './resume/ATSParamResume.pdf';
+                    const fileName = 'Parmeshwar_Durgist_Resume.pdf';
+
+                    const link = document.createElement('a');
+                    link.href = resumeUrl;
+                    link.download = fileName;
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+
+                    sendVisitorInfo('Resume Downloaded');
+                } catch (error) {
+                    console.error('Download failed:', error);
+                    showToast('Failed to download resume. Please try again later.');
+                }
+            });
+
+            // Download APK
+            document.getElementById('downloadAPK').addEventListener('click', function() {
+                showToast('Downloading APK...');
+                
+                const link = document.createElement('a');
+                link.href = 'https://parmeshwar-durgist.github.io/Resume/app.apk';
+                link.download = 'Parmeshwar_Durgist_App.apk';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                sendVisitorInfo('APK Downloaded');
+            });
+            
+            // Theme switching functionality
+            document.querySelectorAll('.theme-dropdown .dropdown-item').forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const theme = this.getAttribute('data-theme');
+                    document.body.className = 'theme-' + theme;
+                    
+                    // Store theme preference in localStorage
+                    localStorage.setItem('selectedTheme', theme);
+                    
+                    sendVisitorInfo('Theme Changed to ' + theme);
+                    
+                    showToast('Theme changed to ' + theme);
+                });
+            });
+            
+            // Load saved theme if exists
+            const savedTheme = localStorage.getItem('selectedTheme');
+            if (savedTheme) {
+                document.body.className = 'theme-' + savedTheme;
+            }
+            
+            // Project filtering
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const projectItems = document.querySelectorAll('.project-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    // Filter projects
+                    projectItems.forEach(item => {
+                        if (filterValue === 'all') {
+                            item.style.display = 'block';
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'scale(1)';
+                            }, 100);
+                        } else if (item.getAttribute('data-category').includes(filterValue)) {
+                            item.style.display = 'block';
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'scale(1)';
+                            }, 100);
+                        } else {
+                            item.style.opacity = '0';
+                            item.style.transform = 'scale(0.8)';
+                            setTimeout(() => {
+                                item.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+            
+            // Function to send visitor information
+            function sendVisitorInfo(action) {
+                const visitorInfo = {
+                    action: action,
+                    timestamp: new Date().toLocaleString(),
+                    userAgent: navigator.userAgent,
+                    platform: navigator.platform,
+                    language: navigator.language,
+                    screen: `${screen.width}x${screen.height}`,
+                    url: window.location.href
+                };
+                
+                console.log('Visitor information:', visitorInfo);
+            }
+            
+            // Toast notification function
+            function showToast(message) {
+                const toast = document.getElementById('toastNotification');
+                const toastMessage = document.getElementById('toastMessage');
+                
+                toastMessage.textContent = message;
+                toast.classList.add('show');
+                
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 3000);
+            }
+            
+            // Send initial visitor info when page loads
+            setTimeout(() => {
+                sendVisitorInfo('Page Visited');
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
